@@ -1,8 +1,13 @@
-def selection_sort(list):
-    for index in range(0, len(list)):
-        iSmall = index
-        for i in range(index,len(list)):
-            if list[iSmall] > list[i]:
-                iSmall = i
-        list[index], list[iSmall] = list[iSmall], list[index]
-    return list 
+def sort(data):
+    if data is None:
+        raise TypeError('data cannot be None')
+    if len(data) < 2:
+        return data
+    for i in range(len(data) - 1):
+        min_index = i
+        for j in range(i + 1, len(data)):
+            if data[j] < data[min_index]:
+                min_index = j
+        if data[min_index] < data[i]:
+            data[i], data[min_index] = data[min_index], data[i]
+    return data
